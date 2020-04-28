@@ -1,0 +1,14 @@
+server {
+	listen 80;
+	server_name _;
+
+	location /back/ {
+		include uwsgi_params;
+		uwsgi_pass unix:/home/ilyaraz/consensus/back/consensus.sock;
+	}
+
+	location / {
+		root /home/ilyaraz/consensus/front/build;
+		index index.html;
+	}
+}

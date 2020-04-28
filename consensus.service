@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI Consensus instance
+After=network.target
+
+[Service]
+User=ilyaraz
+Group=www-data
+WorkingDirectory=/home/ilyaraz/consensus/back
+Environment="PATH=/home/ilyaraz/consensus/back/env/bin"
+ExecStart=/home/ilyaraz/consensus/back/env/bin/uwsgi --ini consensus.ini
+
+[Install]
+WantedBy=multi-user.target
